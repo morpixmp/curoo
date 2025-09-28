@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
 import { Heart, Baby, Bone, Brain, Zap, ScanLine, Sparkles, Star } from 'lucide-react';
 import { services } from '../data/hospitalData';
 
@@ -12,6 +13,29 @@ const iconMap = {
 };
 
 const Services: React.FC = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % services.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + services.length) % services.length);
+  };
+
+  const goToSlide = (index: number) => {
+    setCurrentSlide(index);
+  };
+
+  // Auto-play functionality
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % services.length);
+    }, 5000); // Change slide every 5 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section id="services" className="relative py-20 bg-gradient-to-br from-gray-50 via-purple-50/50 to-pink-50/50 overflow-hidden">
       {/* Animated Background */}
@@ -39,8 +63,78 @@ const Services: React.FC = () => {
           </p>
         </div>
 
+        {/* Services Carousel */}
+        <div className="mb-16 animate-fadeInUp animation-delay-600">
+          <div className="relative bg-white/90 backdrop-blur-sm rounded-3xl shadow-2xl border border-purple-100/50 overflow-hidden">
+            <div className="relative h-96 overflow-hidden">
+              {services.map((service, index) => {
+                const IconComponent = iconMap[service.icon as keyof typeof iconMap];
+                return (
+                  <div
+                    key={service.id}
+                    className={`absolute inset-0 transition-all duration-700 ease-in-out transform ${
+                      index === currentSlide 
+                        ? 'translate-x-0 opacity-100' 
+                        : index < currentSlide 
+                          ? '-translate-x-full opacity-0' 
+                          : 'translate-x-full opacity-0'
+                    }`}
+                  >
+                    <div className="flex items-center justify-center h-full p-12">
+                      <div className="text-center max-w-2xl">
+                        <div className="w-24 h-24 bg-gradient-to-br from-purple-100 via-pink-100 to-red-100 rounded-3xl flex items-center justify-center mx-auto mb-8 transform hover:scale-110 hover:rotate-6 transition-all duration-300 shadow-lg">
+                          <IconComponent className="text-purple-600 animate-pulse" size={40} />
+                        </div>
+                        <h3 className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent mb-6">
+                          {service.name}
+                        </h3>
+                        <p className="text-xl text-gray-700 leading-relaxed mb-8">
+                          {service.description}
+                        </p>
+                        <button className="bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 text-white px-8 py-4 rounded-full hover:shadow-2xl hover:shadow-purple-500/25 transition-all duration-500 font-medium transform hover:scale-110 group overflow-hidden relative">
+                          <span className="absolute inset-0 bg-gradient-to-r from-red-500 via-pink-500 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
+                          <span className="relative flex items-center space-x-2">
+                            <Sparkles className="group-hover:animate-spin" size={20} />
+                            <span>Learn More</span>
+                          </span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Navigation Dots */}
+            <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3">
+              {services.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => goToSlide(index)}
+                  className={`w-4 h-4 rounded-full transition-all duration-300 transform hover:scale-125 ${
+                    index === currentSlide
+                      ? 'bg-gradient-to-r from-purple-600 to-pink-500 shadow-lg scale-125'
+                      : 'bg-gray-300 hover:bg-gray-400'
+                  }`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
+
+            {/* Auto-play indicator */}
+            <div className="absolute top-6 right-6">
+              <div className="flex items-center space-x-2 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg">
+                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                <span className="text-sm text-gray-600 font-medium">
+                  {currentSlide + 1} / {services.length}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16 animate-fadeInUp animation-delay-600">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16 animate-fadeInUp animation-delay-1000">
           {services.map((service) => {
             const IconComponent = iconMap[service.icon as keyof typeof iconMap];
             return (
@@ -64,7 +158,7 @@ const Services: React.FC = () => {
         </div>
 
         {/* Additional Services */}
-        <div className="relative bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 rounded-3xl p-8 lg:p-12 text-white text-center overflow-hidden animate-fadeInUp animation-delay-1000">
+        <div className="relative bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 rounded-3xl p-8 lg:p-12 text-white text-center overflow-hidden animate-fadeInUp animation-delay-1200">
           <div className="absolute inset-0 bg-gradient-to-r from-red-500 via-pink-500 to-purple-600 opacity-0 hover:opacity-100 transition-opacity duration-1000"></div>
           <div className="relative z-10">
             <div className="flex items-center justify-center space-x-2 mb-4">

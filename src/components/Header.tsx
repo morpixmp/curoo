@@ -93,7 +93,6 @@ const Header: React.FC = () => {
               <div
                 className="relative"
                 onMouseEnter={() => setIsServicesHovered(true)}
-                onMouseLeave={() => setIsServicesHovered(false)}
               >
                 <button
                   onClick={() => scrollToSection('services')}
@@ -106,7 +105,11 @@ const Header: React.FC = () => {
                 
                 {/* Full-Width Dropdown */}
                 {isServicesHovered && (
-                  <div className="fixed left-0 right-0 top-full bg-white shadow-2xl border-t border-purple-100 z-50 animate-slideDown">
+                  <div 
+                    className="fixed left-0 right-0 top-full bg-white shadow-2xl border-t border-purple-100 z-50 animate-slideDown"
+                    onMouseEnter={() => setIsServicesHovered(true)}
+                    onMouseLeave={() => setIsServicesHovered(false)}
+                  >
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
                       <div className="text-center mb-8">
                         <h3 className="text-3xl font-bold bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 bg-clip-text text-transparent mb-2">
@@ -122,7 +125,6 @@ const Header: React.FC = () => {
                             className="group p-6 rounded-2xl bg-gradient-to-br from-purple-50 to-pink-50 hover:from-purple-100 hover:to-pink-100 transition-all duration-300 transform hover:scale-105 hover:-translate-y-2 cursor-pointer border border-purple-100/50 hover:shadow-xl hover:shadow-purple-500/20"
                             onClick={() => {
                               scrollToSection('services');
-                              setIsServicesHovered(false);
                             }}
                             style={{ animationDelay: `${index * 100}ms` }}
                           >
@@ -147,7 +149,6 @@ const Header: React.FC = () => {
                         <button
                           onClick={() => {
                             scrollToSection('services');
-                            setIsServicesHovered(false);
                           }}
                           className="bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 text-white px-8 py-3 rounded-full hover:shadow-2xl hover:shadow-purple-500/25 transition-all duration-300 font-medium transform hover:scale-105 group overflow-hidden relative"
                         >
