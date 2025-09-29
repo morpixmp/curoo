@@ -14,6 +14,7 @@ const iconMap = {
 
 const Services: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [rippleIndex, setRippleIndex] = useState<number | null>(null);
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % services.length);
@@ -25,6 +26,9 @@ const Services: React.FC = () => {
 
   const goToSlide = (index: number) => {
     setCurrentSlide(index);
+    setRippleIndex(index);
+    // Reset ripple after animation completes
+    setTimeout(() => setRippleIndex(null), 600);
   };
 
   // Auto-play functionality
@@ -111,13 +115,21 @@ const Services: React.FC = () => {
                 <button
                   key={index}
                   onClick={() => goToSlide(index)}
-                  className={`w-4 h-4 rounded-full transition-all duration-300 transform hover:scale-125 ${
+                  className={`relative w-4 h-4 rounded-full transition-all duration-300 transform hover:scale-125 overflow-hidden ${
                     index === currentSlide
                       ? 'bg-gradient-to-r from-purple-600 to-pink-500 shadow-lg scale-125'
                       : 'bg-gray-300 hover:bg-gray-400'
                   }`}
                   aria-label={`Go to slide ${index + 1}`}
-                />
+                >
+                  {/* Ripple Effect */}
+                  {rippleIndex === index && (
+                    <span className="absolute inset-0 animate-ping bg-gradient-to-r from-purple-400 to-pink-400 rounded-full opacity-75"></span>
+                  )}
+                  {rippleIndex === index && (
+                    <span className="absolute inset-0 animate-pulse bg-gradient-to-r from-purple-500 to-pink-500 rounded-full opacity-50 scale-150"></span>
+                  )}
+                </button>
               ))}
             </div>
 

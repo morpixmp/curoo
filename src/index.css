@@ -113,6 +113,22 @@
   animation: spin-slow 3s linear infinite;
 }
 
+/* Ripple Animation */
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+.animate-ripple {
+  animation: ripple 0.6s linear;
+}
+
 /* Animation Delays */
 .animation-delay-300 {
   animation-delay: 0.3s;
