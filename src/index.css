@@ -114,19 +114,16 @@
 }
 
 /* Ripple Animation */
-@keyframes ripple {
+@keyframes slideIndicator {
   0% {
-    transform: scale(0);
-    opacity: 1;
+    transform: translateX(0) scale(1.25);
+  }
+  50% {
+    transform: translateX(0) scale(1.4);
   }
   100% {
-    transform: scale(4);
-    opacity: 0;
+    transform: translateX(0) scale(1.25);
   }
-}
-
-.animate-ripple {
-  animation: ripple 0.6s linear;
 }
 
 /* Animation Delays */

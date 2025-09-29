@@ -111,26 +111,29 @@ const Services: React.FC = () => {
 
             {/* Navigation Dots */}
             <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3">
-              {services.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => goToSlide(index)}
-                  className={`relative w-4 h-4 rounded-full transition-all duration-300 transform hover:scale-125 overflow-hidden ${
-                    index === currentSlide
-                      ? 'bg-gradient-to-r from-purple-600 to-pink-500 shadow-lg scale-125'
-                      : 'bg-gray-300 hover:bg-gray-400'
-                  }`}
-                  aria-label={`Go to slide ${index + 1}`}
+              <div className="relative flex space-x-3">
+                {/* Background dots */}
+                {services.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => goToSlide(index)}
+                    className="w-4 h-4 rounded-full bg-gray-300 hover:bg-gray-400 transition-all duration-300 transform hover:scale-110 z-10 relative"
+                    aria-label={`Go to slide ${index + 1}`}
+                  />
+                ))}
+                
+                {/* Sliding active indicator */}
+                <div
+                  className="absolute top-0 w-4 h-4 bg-gradient-to-r from-purple-600 to-pink-500 rounded-full shadow-lg transition-all duration-500 ease-out transform scale-125"
+                  style={{
+                    left: `${currentSlide * 28}px`, // 16px width + 12px gap = 28px spacing
+                    transform: 'translateX(0) scale(1.25)'
+                  }}
                 >
-                  {/* Ripple Effect */}
-                  {rippleIndex === index && (
-                    <span className="absolute inset-0 animate-ping bg-gradient-to-r from-purple-400 to-pink-400 rounded-full opacity-75"></span>
-                  )}
-                  {rippleIndex === index && (
-                    <span className="absolute inset-0 animate-pulse bg-gradient-to-r from-purple-500 to-pink-500 rounded-full opacity-50 scale-150"></span>
-                  )}
-                </button>
-              ))}
+                  {/* Glow effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full animate-pulse opacity-60 scale-150"></div>
+                </div>
+              </div>
             </div>
 
             {/* Auto-play indicator */}
