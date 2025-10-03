@@ -100,20 +100,20 @@ const AppointmentForm: React.FC = () => {
     <section id="appointment" className="relative py-20 bg-gradient-to-br from-gray-50 via-purple-50/50 to-pink-50/50 overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-20 w-96 h-96 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float"></div>
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-pink-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float animation-delay-2000"></div>
+        <div className="absolute top-20 left-20 w-96 h-96 bg-cyan-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float"></div>
+        <div className="absolute bottom-20 right-20 w-96 h-96 bg-orange-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float animation-delay-2000"></div>
       </div>
       
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16 animate-fadeInUp">
           <div className="flex items-center justify-center space-x-2 mb-4">
-            <Heart className="text-purple-500 animate-pulse" size={24} />
-            <span className="text-purple-600 font-semibold">Schedule Your Visit</span>
-            <Heart className="text-pink-500 animate-pulse" size={24} />
+            <Heart className="text-cyan-500 animate-pulse" size={24} />
+            <span className="text-cyan-600 font-semibold">Schedule Your Visit</span>
+            <Heart className="text-orange-500 animate-pulse" size={24} />
           </div>
           <h2 className="text-4xl lg:text-6xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-cyan-600 via-teal-500 to-orange-500 bg-clip-text text-transparent">
               Book Your Appointment
             </span>
           </h2>
@@ -123,6 +123,7 @@ const AppointmentForm: React.FC = () => {
         </div>
 
         <div className="bg-white/90 backdrop-blur-sm rounded-3xl shadow-2xl p-8 lg:p-12 border border-purple-100/50 animate-fadeInUp animation-delay-600">
+        <div className="bg-white/90 backdrop-blur-sm rounded-3xl shadow-2xl p-8 lg:p-12 border border-cyan-100/50 animate-fadeInUp animation-delay-600">
           <form onSubmit={handleSubmit} className="space-y-8">
             {/* Personal Information */}
             <div className="grid md:grid-cols-2 gap-6">
@@ -131,7 +132,7 @@ const AppointmentForm: React.FC = () => {
                   First Name *
                 </label>
                 <div className="relative group">
-                  <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-purple-400 group-hover:animate-bounce" size={20} />
+                  <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-cyan-400 group-hover:animate-bounce" size={20} />
                   <input
                     type="text"
                     id="firstName"
@@ -139,7 +140,7 @@ const AppointmentForm: React.FC = () => {
                     value={formData.firstName}
                     onChange={handleInputChange}
                     required
-                    className="w-full pl-10 pr-4 py-3 border border-purple-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300 hover:border-purple-300"
+                    className="w-full pl-10 pr-4 py-3 border border-cyan-200 rounded-xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-300 hover:border-cyan-300"
                     placeholder="Enter your first name"
                   />
                 </div>
@@ -150,7 +151,7 @@ const AppointmentForm: React.FC = () => {
                   Last Name *
                 </label>
                 <div className="relative group">
-                  <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-purple-400 group-hover:animate-bounce" size={20} />
+                  <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-cyan-400 group-hover:animate-bounce" size={20} />
                   <input
                     type="text"
                     id="lastName"
@@ -158,7 +159,7 @@ const AppointmentForm: React.FC = () => {
                     value={formData.lastName}
                     onChange={handleInputChange}
                     required
-                    className="w-full pl-10 pr-4 py-3 border border-purple-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300 hover:border-purple-300"
+                    className="w-full pl-10 pr-4 py-3 border border-cyan-200 rounded-xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-300 hover:border-cyan-300"
                     placeholder="Enter your last name"
                   />
                 </div>
@@ -172,7 +173,7 @@ const AppointmentForm: React.FC = () => {
                   Email Address *
                 </label>
                 <div className="relative group">
-                  <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-purple-400 group-hover:animate-bounce" size={20} />
+                  <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-cyan-400 group-hover:animate-bounce" size={20} />
                   <input
                     type="email"
                     id="email"
@@ -180,7 +181,7 @@ const AppointmentForm: React.FC = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full pl-10 pr-4 py-3 border border-purple-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300 hover:border-purple-300"
+                    className="w-full pl-10 pr-4 py-3 border border-cyan-200 rounded-xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-300 hover:border-cyan-300"
                     placeholder="Enter your email"
                   />
                 </div>
@@ -191,7 +192,7 @@ const AppointmentForm: React.FC = () => {
                   Phone Number *
                 </label>
                 <div className="relative group">
-                  <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-purple-400 group-hover:animate-bounce" size={20} />
+                  <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-cyan-400 group-hover:animate-bounce" size={20} />
                   <input
                     type="tel"
                     id="phone"
@@ -199,7 +200,7 @@ const AppointmentForm: React.FC = () => {
                     value={formData.phone}
                     onChange={handleInputChange}
                     required
-                    className="w-full pl-10 pr-4 py-3 border border-purple-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300 hover:border-purple-300"
+                    className="w-full px-4 py-3 border border-cyan-200 rounded-xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-300 hover:border-cyan-300"
                     placeholder="Enter your phone number"
                   />
                 </div>
@@ -218,6 +219,7 @@ const AppointmentForm: React.FC = () => {
                 onChange={handleInputChange}
                 required
                 className="w-full px-4 py-3 border border-purple-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300 hover:border-purple-300"
+                className="w-full px-4 py-3 border border-cyan-200 rounded-xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-300 hover:border-cyan-300"
               >
                 <option value="">Select a department</option>
                 {departments.map((dept) => (
@@ -235,7 +237,7 @@ const AppointmentForm: React.FC = () => {
                   Preferred Date *
                 </label>
                 <div className="relative group">
-                  <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-purple-400 group-hover:animate-bounce" size={20} />
+                  <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-cyan-400 group-hover:animate-bounce" size={20} />
                   <input
                     type="date"
                     id="preferredDate"
@@ -244,7 +246,7 @@ const AppointmentForm: React.FC = () => {
                     onChange={handleInputChange}
                     required
                     min={new Date().toISOString().split('T')[0]}
-                    className="w-full pl-10 pr-4 py-3 border border-purple-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300 hover:border-purple-300"
+                    className="w-full pl-10 pr-4 py-3 border border-cyan-200 rounded-xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-300 hover:border-cyan-300"
                   />
                 </div>
               </div>
@@ -254,14 +256,14 @@ const AppointmentForm: React.FC = () => {
                   Preferred Time *
                 </label>
                 <div className="relative group">
-                  <Clock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-purple-400 group-hover:animate-bounce" size={20} />
+                  <Clock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-cyan-400 group-hover:animate-bounce" size={20} />
                   <select
                     id="preferredTime"
                     name="preferredTime"
                     value={formData.preferredTime}
                     onChange={handleInputChange}
                     required
-                    className="w-full pl-10 pr-4 py-3 border border-purple-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300 hover:border-purple-300"
+                    className="w-full pl-10 pr-4 py-3 border border-cyan-200 rounded-xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-300 hover:border-cyan-300"
                   >
                     <option value="">Select a time</option>
                     {timeSlots.map((time) => (
@@ -280,14 +282,14 @@ const AppointmentForm: React.FC = () => {
                 Additional Information
               </label>
               <div className="relative group">
-                <MessageSquare className="absolute left-3 top-3 text-purple-400 group-hover:animate-bounce" size={20} />
+                <MessageSquare className="absolute left-3 top-3 text-cyan-400 group-hover:animate-bounce" size={20} />
                 <textarea
                   id="message"
                   name="message"
                   value={formData.message}
                   onChange={handleInputChange}
                   rows={4}
-                  className="w-full pl-10 pr-4 py-3 border border-purple-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300 hover:border-purple-300"
+                  className="w-full pl-10 pr-4 py-3 border border-cyan-200 rounded-xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-300 hover:border-cyan-300"
                   placeholder="Please describe your symptoms or reason for visit..."
                 />
               </div>
@@ -301,11 +303,11 @@ const AppointmentForm: React.FC = () => {
                 className={`relative px-10 py-4 rounded-full font-medium text-white transition-all duration-500 transform hover:scale-110 overflow-hidden group ${
                   isSubmitting
                     ? 'bg-gray-400 cursor-not-allowed'
-                    : 'bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 hover:shadow-2xl hover:shadow-purple-500/25'
+                    : 'bg-gradient-to-r from-cyan-600 via-teal-500 to-orange-500 hover:shadow-2xl hover:shadow-cyan-500/25'
                 }`}
               >
                 {!isSubmitting && (
-                  <span className="absolute inset-0 bg-gradient-to-r from-red-500 via-pink-500 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
+                  <span className="absolute inset-0 bg-gradient-to-r from-orange-500 via-teal-500 to-cyan-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
                 )}
                 {isSubmitting ? (
                   <span className="relative flex items-center justify-center space-x-2">

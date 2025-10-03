@@ -44,20 +44,20 @@ const Services: React.FC = () => {
     <section id="services" className="relative py-20 bg-gradient-to-br from-gray-50 via-purple-50/50 to-pink-50/50 overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 right-20 w-80 h-80 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-float"></div>
-        <div className="absolute bottom-20 left-20 w-80 h-80 bg-pink-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-float animation-delay-2000"></div>
+        <div className="absolute top-20 right-20 w-80 h-80 bg-cyan-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-float"></div>
+        <div className="absolute bottom-20 left-20 w-80 h-80 bg-orange-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-float animation-delay-2000"></div>
       </div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16 animate-fadeInUp">
           <div className="flex items-center justify-center space-x-2 mb-4">
-            <Star className="text-purple-500 animate-spin-slow" size={24} />
-            <span className="text-purple-600 font-semibold">Our Medical Specialties</span>
-            <Star className="text-pink-500 animate-spin-slow" size={24} />
+            <Star className="text-cyan-500 animate-spin-slow" size={24} />
+            <span className="text-cyan-600 font-semibold">Our Medical Specialties</span>
+            <Star className="text-orange-500 animate-spin-slow" size={24} />
           </div>
           <h2 className="text-4xl lg:text-6xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-cyan-600 via-teal-500 to-orange-500 bg-clip-text text-transparent">
               Our Medical Services
             </span>
           </h2>
@@ -69,7 +69,7 @@ const Services: React.FC = () => {
 
         {/* Services Carousel */}
         <div className="mb-16 animate-fadeInUp animation-delay-600">
-          <div className="relative bg-white/90 backdrop-blur-sm rounded-3xl shadow-2xl border border-purple-100/50 overflow-hidden">
+          <div className="relative bg-white/90 backdrop-blur-sm rounded-3xl shadow-2xl border border-cyan-100/50 overflow-hidden">
             <div className="relative h-96 overflow-hidden">
               {services.map((service, index) => {
                 const IconComponent = iconMap[service.icon as keyof typeof iconMap];
@@ -86,17 +86,17 @@ const Services: React.FC = () => {
                   >
                     <div className="flex items-center justify-center h-full p-12">
                       <div className="text-center max-w-2xl">
-                        <div className="w-24 h-24 bg-gradient-to-br from-purple-100 via-pink-100 to-red-100 rounded-3xl flex items-center justify-center mx-auto mb-8 transform hover:scale-110 hover:rotate-6 transition-all duration-300 shadow-lg">
-                          <IconComponent className="text-purple-600 animate-pulse" size={40} />
+                        <div className="w-24 h-24 bg-gradient-to-br from-cyan-100 via-teal-100 to-orange-100 rounded-3xl flex items-center justify-center mx-auto mb-8 transform hover:scale-110 hover:rotate-6 transition-all duration-300 shadow-lg">
+                          <IconComponent className="text-cyan-600 animate-pulse" size={40} />
                         </div>
-                        <h3 className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent mb-6">
+                        <h3 className="text-4xl font-bold bg-gradient-to-r from-cyan-600 to-orange-500 bg-clip-text text-transparent mb-6">
                           {service.name}
                         </h3>
                         <p className="text-xl text-gray-700 leading-relaxed mb-8">
                           {service.description}
                         </p>
-                        <button className="bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 text-white px-8 py-4 rounded-full hover:shadow-2xl hover:shadow-purple-500/25 transition-all duration-500 font-medium transform hover:scale-110 group overflow-hidden relative">
-                          <span className="absolute inset-0 bg-gradient-to-r from-red-500 via-pink-500 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
+                        <button className="bg-gradient-to-r from-cyan-600 via-teal-500 to-orange-500 text-white px-8 py-4 rounded-full hover:shadow-2xl hover:shadow-cyan-500/25 transition-all duration-500 font-medium transform hover:scale-110 group overflow-hidden relative">
+                          <span className="absolute inset-0 bg-gradient-to-r from-orange-500 via-teal-500 to-cyan-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
                           <span className="relative flex items-center space-x-2">
                             <Sparkles className="group-hover:animate-spin" size={20} />
                             <span>Learn More</span>
@@ -124,14 +124,14 @@ const Services: React.FC = () => {
                 
                 {/* Sliding active indicator */}
                 <div
-                  className="absolute top-0 w-4 h-4 bg-gradient-to-r from-purple-600 to-pink-500 rounded-full shadow-lg transition-all duration-500 ease-out transform scale-125"
+                  className="absolute top-0 w-4 h-4 bg-gradient-to-r from-cyan-600 to-orange-500 rounded-full shadow-lg transition-all duration-500 ease-out transform scale-125"
                   style={{
                     left: `${currentSlide * 28}px`, // 16px width + 12px gap = 28px spacing
                     transform: 'translateX(0) scale(1.25)'
                   }}
                 >
                   {/* Glow effect */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full animate-pulse opacity-60 scale-150"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-orange-400 rounded-full animate-pulse opacity-60 scale-150"></div>
                 </div>
               </div>
             </div>
@@ -155,14 +155,14 @@ const Services: React.FC = () => {
             return (
               <div
                 key={service.id}
-                className="group bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg hover:shadow-2xl hover:shadow-purple-500/20 transition-all duration-500 border border-purple-100/50 transform hover:scale-105 hover:-translate-y-2"
+                className="group bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg hover:shadow-2xl hover:shadow-cyan-500/20 transition-all duration-500 border border-cyan-100/50 transform hover:scale-105 hover:-translate-y-2"
               >
-                <div className="w-20 h-20 bg-gradient-to-br from-purple-100 via-pink-100 to-red-100 rounded-2xl flex items-center justify-center mb-6 transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
-                  <IconComponent className="text-purple-600 group-hover:animate-bounce" size={32} />
+                <div className="w-20 h-20 bg-gradient-to-br from-cyan-100 via-teal-100 to-orange-100 rounded-2xl flex items-center justify-center mb-6 transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                  <IconComponent className="text-cyan-600 group-hover:animate-bounce" size={32} />
                 </div>
-                <h3 className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent mb-4">{service.name}</h3>
+                <h3 className="text-2xl font-bold bg-gradient-to-r from-cyan-600 to-orange-500 bg-clip-text text-transparent mb-4">{service.name}</h3>
                 <p className="text-gray-700 leading-relaxed mb-6">{service.description}</p>
-                <button className="group/btn text-purple-600 font-medium hover:text-purple-700 transition-all duration-300 flex items-center space-x-2 transform hover:translate-x-2">
+                <button className="group/btn text-cyan-600 font-medium hover:text-cyan-700 transition-all duration-300 flex items-center space-x-2 transform hover:translate-x-2">
                   <Sparkles className="group-hover/btn:animate-spin" size={16} />
                   <span>Learn More</span>
                   <span className="transform group-hover/btn:translate-x-1 transition-transform duration-300">→</span>
@@ -173,8 +173,8 @@ const Services: React.FC = () => {
         </div>
 
         {/* Additional Services */}
-        <div className="relative bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 rounded-3xl p-8 lg:p-12 text-white text-center overflow-hidden animate-fadeInUp animation-delay-1200">
-          <div className="absolute inset-0 bg-gradient-to-r from-red-500 via-pink-500 to-purple-600 opacity-0 hover:opacity-100 transition-opacity duration-1000"></div>
+        <div className="relative bg-gradient-to-r from-cyan-600 via-teal-500 to-orange-500 rounded-3xl p-8 lg:p-12 text-white text-center overflow-hidden animate-fadeInUp animation-delay-1200">
+          <div className="absolute inset-0 bg-gradient-to-r from-orange-500 via-teal-500 to-cyan-600 opacity-0 hover:opacity-100 transition-opacity duration-1000"></div>
           <div className="relative z-10">
             <div className="flex items-center justify-center space-x-2 mb-4">
               <Sparkles className="animate-pulse" size={24} />
