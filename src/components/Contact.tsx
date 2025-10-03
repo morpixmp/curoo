@@ -169,7 +169,6 @@ const Contact: React.FC = () => {
             <p className="text-gray-700 mb-4">
               Consult with our doctors from the comfort of your home via video call.
             </p>
-            <button className="text-green-600 font-medium hover:text-green-700 transition-all duration-300 transform hover:translate-x-2 flex items-center justify-center space-x-2 mx-auto">
             <button className="text-teal-600 font-medium hover:text-teal-700 transition-all duration-300 transform hover:translate-x-2 flex items-center justify-center space-x-2 mx-auto">
               <Sparkles className="animate-pulse" size={16} />
               <span>Schedule Video Visit</span>
@@ -185,7 +184,6 @@ const Contact: React.FC = () => {
             <p className="text-gray-700 mb-4">
               We accept most major insurance plans. Check if your plan is covered.
             </p>
-            <button className="text-purple-600 font-medium hover:text-purple-700 transition-all duration-300 transform hover:translate-x-2 flex items-center justify-center space-x-2 mx-auto">
             <button className="text-orange-600 font-medium hover:text-orange-700 transition-all duration-300 transform hover:translate-x-2 flex items-center justify-center space-x-2 mx-auto">
               <Sparkles className="animate-pulse" size={16} />
               <span>Verify Coverage</span>
