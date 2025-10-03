@@ -122,7 +122,6 @@ const AppointmentForm: React.FC = () => {
           </p>
         </div>
 
-        <div className="bg-white/90 backdrop-blur-sm rounded-3xl shadow-2xl p-8 lg:p-12 border border-purple-100/50 animate-fadeInUp animation-delay-600">
         <div className="bg-white/90 backdrop-blur-sm rounded-3xl shadow-2xl p-8 lg:p-12 border border-cyan-100/50 animate-fadeInUp animation-delay-600">
           <form onSubmit={handleSubmit} className="space-y-8">
             {/* Personal Information */}
@@ -200,7 +199,7 @@ const AppointmentForm: React.FC = () => {
                     value={formData.phone}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-cyan-200 rounded-xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-300 hover:border-cyan-300"
+                    className="w-full pl-10 pr-4 py-3 border border-cyan-200 rounded-xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-300 hover:border-cyan-300"
                     placeholder="Enter your phone number"
                   />
                 </div>
@@ -218,7 +217,6 @@ const AppointmentForm: React.FC = () => {
                 value={formData.department}
                 onChange={handleInputChange}
                 required
-                className="w-full px-4 py-3 border border-purple-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300 hover:border-purple-300"
                 className="w-full px-4 py-3 border border-cyan-200 rounded-xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-300 hover:border-cyan-300"
               >
                 <option value="">Select a department</option>
